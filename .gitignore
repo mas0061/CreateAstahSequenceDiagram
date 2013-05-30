@@ -1,0 +1,4 @@
+*.asta
+*.asta.bak
+/bin
+/.classpath
