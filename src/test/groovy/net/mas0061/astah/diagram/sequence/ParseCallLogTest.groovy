@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-class ParseCallGraphTest {
+class ParseCallLogTest {
 
 	@Test
 	public void testParse() {
