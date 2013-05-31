@@ -11,11 +11,14 @@ import com.change_vision.jude.api.inf.presentation.INodePresentation
 import com.change_vision.jude.api.inf.project.ProjectAccessor
 
 class CreateSequenceDiagram {
-	ProjectAccessor prjAccsr = AstahAPI.getAstahAPI().getProjectAccessor()
-	SequenceDiagramEditor seqDiagEditor
-	ISequenceDiagram seqDiag
+	ProjectAccessor prjAccsr
+	
+	CreateSequenceDiagram() {
+		prjAccsr = AstahAPI.getAstahAPI().getProjectAccessor()
+	}
 	
 	def create(String prjName) {
+//		prjAccsr.create("#{prjName}.asta")
 		prjAccsr.create(prjName + ".asta")
 	}
 	
@@ -27,8 +30,8 @@ class CreateSequenceDiagram {
 	def createSequenceDiagram(String diagramName, List<CallNode> llList) {
 		TransactionManager.beginTransaction()
 		
-		seqDiagEditor = prjAccsr.getDiagramEditorFactory().getSequenceDiagramEditor()
-		seqDiag = seqDiagEditor.createSequenceDiagram(prjAccsr.getProject(), diagramName)
+		SequenceDiagramEditor seqDiagEditor = prjAccsr.getDiagramEditorFactory().getSequenceDiagramEditor()
+		ISequenceDiagram seqDiag = seqDiagEditor.createSequenceDiagram(prjAccsr.getProject(), diagramName)
 		
 		List<INodePresentation> lifelines = []
 		
@@ -61,6 +64,4 @@ class CreateSequenceDiagram {
 		
 		TransactionManager.endTransaction()
 	}
-	
-
 }

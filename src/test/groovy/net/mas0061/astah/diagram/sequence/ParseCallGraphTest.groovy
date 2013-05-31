@@ -8,9 +8,22 @@ class ParseCallGraphTest {
 
 	@Test
 	public void testParse() {
-		def parser = new ParseCallGraph()
+		def parser = new ParseCallLog()
 		def fileStr = parser.parse("./input/callGraph.txt")
-		assertTrue(fileStr.size() == 5)
+		fileStr.each {
+			println it
+		}
+		assertTrue(fileStr.size() == 8)
+	}
+
+	@Test
+	public void testParse2() {
+		def parser = new ParseCallLog()
+		def fileStr = parser.parse("./input/calllog.txt")
+		fileStr.each {
+			println it.spaceNum
+		}
+		assertTrue(fileStr.size() == 69)
 	}
 
 }
