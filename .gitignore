@@ -2,3 +2,5 @@
 *.asta.bak
 /bin
 /.classpath
+/build
+/.gradle
