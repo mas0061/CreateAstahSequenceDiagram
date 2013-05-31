@@ -18,8 +18,7 @@ class CreateSequenceDiagram {
 	}
 	
 	def create(String prjName) {
-//		prjAccsr.create("#{prjName}.asta")
-		prjAccsr.create(prjName + ".asta")
+		prjAccsr.create("${prjName}.asta")
 	}
 	
 	def close() {
