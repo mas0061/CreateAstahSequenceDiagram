@@ -14,7 +14,11 @@ class CreateSequenceDiagram {
 	ProjectAccessor prjAccsr
 	
 	CreateSequenceDiagram() {
-		prjAccsr = AstahAPI.getAstahAPI().getProjectAccessor()
+		try {
+			prjAccsr = AstahAPI.getAstahAPI().getProjectAccessor()
+		} catch(e) {
+			e.stackTrace()
+		}
 	}
 	
 	def create(String prjName) {

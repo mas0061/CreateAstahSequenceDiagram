@@ -1,8 +1,8 @@
 package net.mas0061.astah.diagram.sequence.node;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.*
 
-import org.junit.Test;
+import org.junit.Test
 
 class CallNodeTest {
 
