@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+   <extension point="com.change_vision.astah.ui.actionSets">
+      <actionSet
+            label="%action_set_label"
+            visible="true"
+            id="jp.vdmtools.vdmlink.actionSet">
+         <menu
+               id="vdmlink"
+               label="%vdm_menu_group"
+               path="tool/c_plus">
+         </menu>
+         <action
+         label="%vdm_menu_label_in"
+               icon="icons/sample.gif"
+               class="jp.vdmtools.astah.plugin.VDMInAction"
+               menubarPath="tool/vdmlink/"
+               id="vdmlink_in">
+         </action>
+         <action
+         label="%vdm_menu_label_out"
+               icon="icons/sample.gif"
+               class="jp.vdmtools.astah.plugin.VDMOutAction"
+               menubarPath="tool/vdmlink/"
+               id="vdmlink_out">
+         </action>
+     </actionSet>
+   </extension>
+</plugin>

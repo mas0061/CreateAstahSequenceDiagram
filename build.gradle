@@ -1,5 +1,6 @@
 apply plugin: 'groovy'
 apply plugin: 'eclipse'
+apply plugin: 'osgi'
 
 project.ext {
 	version = '1.0'
@@ -14,5 +15,8 @@ dependencies {
 	groovy group: 'org.codehaus.groovy', name: 'groovy', version: '2.0.1'
 	compile fileTree(dir: 'lib', include: '*.jar')
 	compile 'org.slf4j:slf4j-simple:1.6.1'
+	
+	compile 'org.apache.felix:org.osgi.core:1.4.0'
+	compile 'org.sonatype.tycho:org.eclipse.osgi:3.6.2.R36x_v20110210'
 	testCompile "junit:junit:4.11"
 }
