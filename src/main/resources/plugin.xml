@@ -1,28 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin>
-   <extension point="com.change_vision.astah.ui.actionSets">
+   <extension point="net.mas0061.astah.plugin.sequence.ui.actionSets">
       <actionSet
             label="%action_set_label"
             visible="true"
-            id="jp.vdmtools.vdmlink.actionSet">
+            id="net.mas0061.astah.plugin.sequence.generate_sequence_fromVDM.actionSet">
          <menu
-               id="vdmlink"
-               label="%vdm_menu_group"
-               path="tool/c_plus">
+               id="generate_sequence_fromVDM"
+               label="%menu_group"
+               path="tool/generate_sequence_fromVDM">
          </menu>
          <action
-         label="%vdm_menu_label_in"
+			   label="%menu_label"
                icon="icons/sample.gif"
-               class="jp.vdmtools.astah.plugin.VDMInAction"
-               menubarPath="tool/vdmlink/"
-               id="vdmlink_in">
-         </action>
-         <action
-         label="%vdm_menu_label_out"
-               icon="icons/sample.gif"
-               class="jp.vdmtools.astah.plugin.VDMOutAction"
-               menubarPath="tool/vdmlink/"
-               id="vdmlink_out">
+               class="net.mas0061.astah.plugin.sequence.TemplateAction"
+               tooltip="%menu_tooltip"
+               menubarPath="tool/generate_sequence_fromVDM/"
+               id="generate_sequence_fromVDM">
          </action>
      </actionSet>
    </extension>
