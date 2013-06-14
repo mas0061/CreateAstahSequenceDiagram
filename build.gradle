@@ -2,7 +2,7 @@ import com.sun.java.util.jar.pack.Instruction;
 
 apply plugin: 'groovy'
 apply plugin: 'eclipse'
-apply plugin: 'osgi'
+//apply plugin: 'osgi'
 
 project.ext {
 	prjVersion = '1.0'
@@ -20,24 +20,23 @@ dependencies {
 	compile fileTree(dir: 'lib', include: '*.jar')
 	compile 'org.slf4j:slf4j-simple:1.6.1'
 
-	compile 'org.apache.felix:org.osgi.core:1.4.0'
-	compile 'org.sonatype.tycho:org.eclipse.osgi:3.6.2.R36x_v20110210'
+//	compile 'org.apache.felix:org.osgi.core:1.4.0'
+//	compile 'org.sonatype.tycho:org.eclipse.osgi:3.6.2.R36x_v20110210'
 	testCompile "junit:junit:4.11"
 }
 
-jar {
-	archiveName = project.outputName + ".jar"
-	manifest {
-		name = 'VDM動作シーケンス図作成プラグイン'
-		version = project.prjVersion
-		symbolicName = project.namespace + '.plugin.sequence'
-		instruction 'Export-Package', '*'
-		instruction 'Import-Package', '*'
-		instruction 'Bundle-Vendor', 'mas0061'
-		instruction 'Bundle-Description', 'generate sequence diagram from VDM'
-		instruction 'Bundle-Activator', project.namespace + '.plugin.sequence.Activator'
-//		instruction 'Bundle-ClassPath', '.,groovy-2.0.8.jar
-		instruction 'Astah-Version', project.astahVersion
-		instruction 'Astah-Edition', project.astahEdition
-	}
-}
+//jar {
+//	archiveName = project.outputName + ".jar"
+//	manifest {
+//		name = 'VDM動作シーケンス図作成プラグイン'
+//		version = project.prjVersion
+//		symbolicName = project.namespace + '.plugin.sequence'
+//		instruction 'Export-Package', '*'
+//		instruction 'Import-Package', '*'
+//		instruction 'Bundle-Vendor', 'mas0061'
+//		instruction 'Bundle-Description', 'generate sequence diagram from VDM'
+//		instruction 'Bundle-Activator', project.namespace + '.plugin.sequence.Activator'
+//		instruction 'Astah-Version', project.astahVersion
+//		instruction 'Astah-Edition', project.astahEdition
+//	}
+//}
