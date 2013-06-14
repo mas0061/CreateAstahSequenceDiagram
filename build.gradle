@@ -36,7 +36,7 @@ jar {
 		instruction 'Bundle-Vendor', 'mas0061'
 		instruction 'Bundle-Description', 'generate sequence diagram from VDM'
 		instruction 'Bundle-Activator', project.namespace + '.plugin.sequence.Activator'
-		instruction 'Bundle-ClassPath', '.,groovy-2.0.8.jar'
+//		instruction 'Bundle-ClassPath', '.,groovy-2.0.8.jar
 		instruction 'Astah-Version', project.astahVersion
 		instruction 'Astah-Edition', project.astahEdition
 	}

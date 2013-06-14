@@ -12,7 +12,7 @@ class ParseCallLog {
 		topSpaceNum = getSpaceNum(top)
 
 		List<CallNode> nodeList = []
-		orgList.each {str->
+		orgList.findAll{ it.find("`") }.each {str->
 			def trimStr = str.stripIndent(topSpaceNum)
 			nodeList.add(createCallNode(trimStr))
 		}

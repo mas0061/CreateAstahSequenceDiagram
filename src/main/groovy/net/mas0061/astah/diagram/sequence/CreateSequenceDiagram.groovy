@@ -25,9 +25,13 @@ class CreateSequenceDiagram {
 		prjAccsr.create("${prjName}.asta")
 	}
 	
-	def close() {
+	def save() {
 		prjAccsr.save()
-		AstahAPI.getAstahAPI().getProjectAccessor().close()
+	}
+	
+	def close() {
+		save()
+		prjAccsr.close()
 	}
 	
 	def createSequenceDiagram(String diagramName, List<CallNode> llList) {

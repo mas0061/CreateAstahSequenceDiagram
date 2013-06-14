@@ -1,69 +1,138 @@
- TestMain`run
-   TestSuite`TestSuite
-    TestSuite`setName
-  TestResult`addListener
+ TestRunner`TestRunner
+  TestRunnerBase`TestRunnerBase
+  TestRunner`TestRunner
+ TestRunnerBase`run
+  TestSuite`TestSuite
+   Test`Test
+    Assert`Assert
      Assert`Assert
-    TestCase`TestCase
-     TestCase`setName
+   TestSuite`TestSuite
+    Test`setName
+  TestResult`TestResult
+  PrintTestListener`PrintTestListener
+   TestListener`TestListener
+  TestResult`addListener
+  TestRunner`addTest
    CalcTest`CalcTest
-    TestCase`setName
-  TestSuite`addTest
+    TestCase`TestCase
+     Test`Test
+      Assert`Assert
+       Assert`Assert
+    CalcTest`CalcTest
+     Test`setName
+   TestSuite`addTest
+   CalcTest2`CalcTest2
+    TestCase`TestCase
+     Test`Test
+      Assert`Assert
+       Assert`Assert
+    CalcTest2`CalcTest2
+     Test`setName
+   TestSuite`addTest
   TestSuite`run
    TestResult`startTest
     PrintTestListener`startTest
-     PrintTestListener`castTest
-      VDMUtil`cast
-     TestSuite`getName
+     Test`getName
      PrintTestListener`print
+      IO`IO
       IO`echo
        IO`fecho
    TestCase`run
     TestResult`startTest
      PrintTestListener`startTest
-      PrintTestListener`castTest
-       VDMUtil`cast
-      TestCase`getName
+      Test`getName
       PrintTestListener`print
+       IO`IO
        IO`echo
         IO`fecho
     CalcTest`setUp
-    TestCase`runTest
-     CalcTest`test01
-      Calc`add
-      Assert`assertTrue
-       Assert`fail
-         AssertionFailedError`AssertionFailedError
-    TestResult`addFailure
-     AssertionFailedError`getMessage
-     AssertionFailedError`getMessage
-     PrintTestListener`addFailure
-      PrintTestListener`castTest
-       VDMUtil`cast
-      AssertionFailedError`getMessage
-      AssertionFailedError`getMessage
-      TestCase`getName
-      AssertionFailedError`getMessage
-      PrintTestListener`print
-       IO`echo
-        IO`fecho
+     Calc`Calc
+    CalcTest`runTest
+     Calc`add
+     Assert`assertTrue
+    TestCase`tearDown
     TestResult`endTest
      PrintTestListener`endTest
-      PrintTestListener`castTest
-       VDMUtil`cast
-      TestCase`getName
+      Test`getName
       PrintTestListener`print
+       IO`IO
+       IO`echo
+        IO`fecho
+   TestCase`run
+    TestResult`startTest
+     PrintTestListener`startTest
+      Test`getName
+      PrintTestListener`print
+       IO`IO
+       IO`echo
+        IO`fecho
+    CalcTest2`setUp
+     Calc`Calc
+    CalcTest2`runTest
+     Calc`add
+     Assert`assertFalse
+      Assert`assertTrue
+    TestCase`tearDown
+    TestResult`endTest
+     PrintTestListener`endTest
+      Test`getName
+      PrintTestListener`print
+       IO`IO
        IO`echo
         IO`fecho
    TestResult`endTest
     PrintTestListener`endTest
-     PrintTestListener`castTest
-      VDMUtil`cast
-     TestSuite`getName
+     Test`getName
      PrintTestListener`print
+      IO`IO
       IO`echo
        IO`fecho
+  TestRunnerBase`writeResult
+   TestSuite`countTestCases
+   TestResult`errorCount
+   TestResult`failureCount
+   TestResult`wasSuccessful
+    TestResult`failureCount
+    TestResult`errorCount
+   TestSuite`tests
+   TestResult`failures
+   Dynamic Type Check
+   JUnitXMLCreator`JUnitXMLCreator
+    XMLCreator`XMLCreator
+     IO`IO
+    VDMUtil`current_time
+    VDMUtil`val2seq_of_char
+   JUnitXMLCreator`writeResult
+    Dynamic Type Check
+    JUnitXMLCreator`convertString
+     VDMUtil`val2seq_of_char
+    JUnitXMLCreator`convertString
+     VDMUtil`val2seq_of_char
+    JUnitXMLCreator`convertString
+     VDMUtil`val2seq_of_char
+    JUnitXMLCreator`convertResult
+    XMLCreator`createFile
+     IO`fecho
+    VDMUtil`classname
+    Test`getName
+    JUnitXMLCreator`isFailure
+    VDMUtil`classname
+    Test`getName
+    JUnitXMLCreator`isFailure
+    XMLCreator`writeLines
+     IO`fecho
+     IO`fecho
+     IO`fecho
+     IO`fecho
+     IO`fecho
+     IO`fecho
+     IO`fecho
+     IO`fecho
+     IO`fecho
   TestResult`wasSuccessful
    TestResult`failureCount
-  TestMain`print
+   TestResult`errorCount
+  TestRunnerBase`print
+   IO`IO
    IO`echo
     IO`fecho
