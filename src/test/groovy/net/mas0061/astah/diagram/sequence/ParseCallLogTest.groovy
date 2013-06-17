@@ -23,7 +23,8 @@ class ParseCallLogTest {
 		fileStr.each {
 			println it.className + "." + it.fnOpName
 		}
-		assertTrue(fileStr.size() == 136)
+		println fileStr.size()
+		assertTrue(fileStr.size() == 140)
 	}
 
 }

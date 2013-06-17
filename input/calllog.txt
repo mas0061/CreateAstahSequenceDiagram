@@ -1,3 +1,8 @@
+Init of Static Instances
+Init of Global Value: RuntimeError`vOccurMessage
+Init of Global Value: CalcTest`JCGControl_imports
+Init of Global Value: CalcTest2`JCGControl_imports
+debug new TestRunner().run()
  TestRunner`TestRunner
   TestRunnerBase`TestRunnerBase
   TestRunner`TestRunner
@@ -47,8 +52,10 @@
         IO`fecho
     CalcTest`setUp
      Calc`Calc
+     Calc`inv_Calc
     CalcTest`runTest
      Calc`add
+      Calc`inv_Calc
      Assert`assertTrue
     TestCase`tearDown
     TestResult`endTest
@@ -68,8 +75,10 @@
         IO`fecho
     CalcTest2`setUp
      Calc`Calc
+     Calc`inv_Calc
     CalcTest2`runTest
      Calc`add
+      Calc`inv_Calc
      Assert`assertFalse
       Assert`assertTrue
     TestCase`tearDown

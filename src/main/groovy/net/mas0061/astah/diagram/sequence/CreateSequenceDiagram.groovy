@@ -31,51 +31,52 @@ class CreateSequenceDiagram {
 	}
 
 	def close() {
-		save()
 		prjAccsr.close()
 	}
 
 	def createSequenceDiagram(String diagramName, List<CallNode> llList) {
-		TransactionManager.beginTransaction()
+		try {
+			TransactionManager.beginTransaction()
 
-		SequenceDiagramEditor seqDiagEditor = prjAccsr.getDiagramEditorFactory().getSequenceDiagramEditor()
-		ISequenceDiagram seqDiag = seqDiagEditor.createSequenceDiagram(prjAccsr.getProject(), diagramName)
+			SequenceDiagramEditor seqDiagEditor = prjAccsr.getDiagramEditorFactory().getSequenceDiagramEditor()
+			ISequenceDiagram seqDiag = seqDiagEditor.createSequenceDiagram(prjAccsr.getProject(), diagramName)
 
-		List<INodePresentation> lifelines = []
+			List<INodePresentation> lifelines = []
 
-		def pos = 0
-		llList.collect { it.className }.unique().each {
-			INodePresentation node = seqDiagEditor.createLifeline(it, pos)
-			lifelines.add(node)
-			pos += 200
-		}
+			def pos = 0
+			llList.collect { it.className }.unique().each {
+				INodePresentation node = seqDiagEditor.createLifeline(it, pos)
+				lifelines.add(node)
+				pos += 200
+			}
 
-		pos = 100
-		CallNode prevNode
-		ILinkPresentation prevLink;
+			pos = 100
+			ILinkPresentation prevLink;
+			INodePresentation from = lifelines.first()
 
-		llList.each { node ->
-			INodePresentation to = lifelines.find { it.getLabel() == node.className }
+			llList.eachWithIndex { node, idx ->
+				INodePresentation to = lifelines.find { it.getLabel() == node.className }
 
-			try {
 				if (node.spaceNum == 0) {
 					prevLink = seqDiagEditor.createMessage(node.fnOpName, to, to, pos)
 				} else {
+					CallNode prevNode = llList[idx - 1]
 					if (prevNode.spaceNum <= node.spaceNum) {
-						prevLink = seqDiagEditor.createMessage(node.fnOpName, prevLink.getSource(), to, pos)
+						prevLink = seqDiagEditor.createMessage(node.fnOpName, prevLink.getTarget(), to, pos)
 					} else {
-						INodePresentation from = lifelines.find { it.getLabel() == prevNode.className }
 						prevLink = seqDiagEditor.createMessage(node.fnOpName, from, to, pos)
+						from = to
 					}
 				}
-			} catch (InvalidEditingException e) {
-				println e.key
+
+				pos += 70
 			}
 
-			prevNode = node
-			pos += 50
+			TransactionManager.endTransaction()
+		} catch (InvalidEditingException e) {
+			println e.key
+		} finally {
+			TransactionManager.abortTransaction()
 		}
-
-		TransactionManager.endTransaction()
 	}
 }

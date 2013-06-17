@@ -12,10 +12,9 @@ class CreateSequenceDiagramTest {
 		crSeqDiag.create("SampleProject")
 		
 		def parser = new ParseCallLog()
-//		def list = parser.parse("./input/callGraph.txt")
 		def list = parser.parse("./input/calllog.txt")
 		crSeqDiag.createSequenceDiagram("testSeq", list)
-		
+		crSeqDiag.save()
 		crSeqDiag.close()
 	}
 
