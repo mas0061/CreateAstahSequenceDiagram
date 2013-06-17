@@ -40,3 +40,7 @@ dependencies {
 //		instruction 'Astah-Edition', project.astahEdition
 //	}
 //}
+
+task execAstah(type : Exec) {
+	commandLine '/C:/Program Files/astah-professional/astah-pro.bat', './SampleProject.asta'
+}
