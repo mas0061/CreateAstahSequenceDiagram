@@ -20,8 +20,8 @@ dependencies {
 	compile fileTree(dir: 'lib', include: '*.jar')
 	compile 'org.slf4j:slf4j-simple:1.6.1'
 
-//	compile 'org.apache.felix:org.osgi.core:1.4.0'
-//	compile 'org.sonatype.tycho:org.eclipse.osgi:3.6.2.R36x_v20110210'
+	//	compile 'org.apache.felix:org.osgi.core:1.4.0'
+	//	compile 'org.sonatype.tycho:org.eclipse.osgi:3.6.2.R36x_v20110210'
 	testCompile "junit:junit:4.11"
 }
 
@@ -41,6 +41,20 @@ dependencies {
 //	}
 //}
 
+ant.condition(property: "os", value: "windows") { os(family: "windows") }
+ant.condition(property: "os", value: "mac") { os(family: "mac") }
+ant.condition(property: "os", value: "unix") { os(family: "unix") }
+
 task execAstah(type : Exec) {
-	commandLine '/C:/Program Files/astah-professional/astah-pro.bat', './SampleProject.asta'
+	switch(ant.properties.os){
+		case 'windows':
+			commandLine '/C:/Program Files/astah-professional/astah-pro.bat', './SampleProject.asta'
+			break
+		case 'mac':
+			commandLine '/Applications/astah professional/astah professional.app', './SampleProject.asta'
+			break
+		case 'unix':
+			println "Is astah installed?"
+			break
+	}
 }
